@@ -1,0 +1,53 @@
+openapi: 3.0.3
+info:
+  title: SMS Customer API
+  version: 1.0.0
+  description: API to receive SMS messages from customers.
+servers:
+  - url: http://localhost:{port}
+    variables:
+      port:
+        default: 8080
+paths:
+  /telco/sendmsg:
+    get:
+      summary: Receive SMS from customer
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Customer username
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Customer password
+        - name: mobile
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{10}$'
+          description: 10-digit mobile number
+        - name: message
+          in: query
+          required: true
+          schema:
+            type: string
+            maxLength: 160
+          description: SMS message content (max 160 characters)
+      responses:
+        '200':
+          description: Success or failure response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example:
+                  STATUS: ACCEPTED~~
+                  RESPONSE_CODE: SUCCESS~~12345ABC
+        '400':
+          description: Invalid input parameters

@@ -1,0 +1,4 @@
+springdoc:
+  swagger-ui:
+    url: /sms-customer-api.yaml
+    path: /swagger-ui.html

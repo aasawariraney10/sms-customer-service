@@ -1,0 +1,66 @@
+# ----------------------------------------
+# Java
+# ----------------------------------------
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# Generated files
+hs_err_pid*
+*.pid
+
+# Logs
+logs/
+*.log
+
+# ----------------------------------------
+# Maven
+# ----------------------------------------
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Local Maven repository cache (optional)
+# .mvn/repository/
+
+# ----------------------------------------
+# IntelliJ IDEA
+# ----------------------------------------
+.idea/
+*.iml
+*.iws
+out/
+
+# IntelliJ project-specific libraries
+.idea/libraries/
+
+# Auto-save and backup files
+*.swp
+*~.nib
+*.bak
+*.tmp
+*.old
+
+# ----------------------------------------
+# OS-specific files
+# ----------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ----------------------------------------
+# Optional: VSCode (if also used)
+# ----------------------------------------
+.vscode/
