@@ -44,7 +44,7 @@ paths:
         '200':
           description: Success or failure response
           content:
-            text/plain:
+            application/json:
               schema:
                 type: string
                 example:
