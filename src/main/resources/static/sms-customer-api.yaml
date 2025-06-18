@@ -9,9 +9,10 @@ servers:
       port:
         default: 8080
 paths:
-  /telco/sendmsg:
+  /telco/send-msg:
     get:
       summary: Receive SMS from customer
+      operationId: receiveSmsFromCustomer
       parameters:
         - name: username
           in: query

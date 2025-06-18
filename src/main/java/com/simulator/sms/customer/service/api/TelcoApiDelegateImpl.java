@@ -1,19 +1,26 @@
 package com.simulator.sms.customer.service.api;
 
 import com.simulator.api.TelcoApi;
+import com.simulator.sms.customer.service.service.TelcoService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 @Service
 @RestController
+@RequiredArgsConstructor
+@Slf4j
 public class TelcoApiDelegateImpl implements TelcoApi {
 
-    @Override
-    public ResponseEntity<String> telcoSendmsgGet(String username, String password, String mobile, String message) {
+    private final TelcoService telcoService;
 
-        System.out.printf("Received SMS - user: %s, mobile: %s, message: %s%n", username, mobile, message);
-        String response = String.format("STATUS: ACCEPTED~~\nRESPONSE_CODE: SUCCESS~~%s", "12345ABC");
+    @Override
+    public ResponseEntity<String> receiveSmsFromCustomer(String username, String password, String mobile, String message) {
+
+        log.info("Received SMS - user: {}, mobile: {}, message: {}", username, mobile, message);
+        String response = telcoService.receiveSmsFromCustomer(username, password, mobile, message);
         return ResponseEntity.ok(response);
     }
 }
